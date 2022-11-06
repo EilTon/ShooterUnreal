@@ -52,6 +52,8 @@ Plugins/*/Binaries/*
 # Builds
 Build/*
 
+Content/AssetPacks/ModularSciFiSeason1/*
+
 # Whitelist PakBlacklist-<BuildConfiguration>.txt files
 !Build/*/
 Build/*/**
