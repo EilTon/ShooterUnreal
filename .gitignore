@@ -52,7 +52,10 @@ Plugins/*/Binaries/*
 # Builds
 Build/*
 
-Content/AssetPacks/ModularSciFiSeason1/*
+Content/AssetPacks/ModularSciFiSeason1/StarterBundle/UE4_Assets
+Content/AssetPacks/ModularSciFiSeason1/StarterBundle/NatureMaterials_Ice
+Content/AssetPacks/ModularSciFiSeason1/StarterBundle/ModularScifiProps
+Content/AssetPacks/ModularSciFiSeason1/StarterBundle/ModularScifiMats
 
 # Whitelist PakBlacklist-<BuildConfiguration>.txt files
 !Build/*/
