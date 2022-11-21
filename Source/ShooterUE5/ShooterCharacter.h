@@ -15,21 +15,28 @@ public:
 	// Sets default values for this character's properties
 	AShooterCharacter();
 
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-private: 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class USpringArmComponent* SpringArm;
+private:
 	void MoveForward(float AxisValue);
 	void LookUp(float AxisValue);
 	void MoveRight(float AxisValue);
 	void LookRight(float AxisValue);
 	void JumpCharacter();
+	void LookUpRate(float AxisValue);
+	void LookRightRate(float AxisValue);
+	UPROPERTY(EditAnywhere)
+		float RotationRate = 10;
 
 };
