@@ -38,6 +38,7 @@ private:
 	void JumpCharacter();
 	void LookUpRate(float AxisValue);
 	void LookRightRate(float AxisValue);
+	void PullTrigger();
 
 	UPROPERTY(EditAnywhere)
 		float RotationRate = 10;
