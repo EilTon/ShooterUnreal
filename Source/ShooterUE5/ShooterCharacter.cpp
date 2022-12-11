@@ -8,7 +8,7 @@
 // Sets default values
 AShooterCharacter::AShooterCharacter()
 {
- 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 }
@@ -20,9 +20,21 @@ void AShooterCharacter::BeginPlay()
 	Health = MaxHealth;
 	Gun = GetWorld()->SpawnActor<AGun>(GunClass);
 	GetMesh()->HideBoneByName(TEXT("weapon_r"), EPhysBodyOp::PBO_None);
-	Gun->AttachToComponent(GetMesh(),FAttachmentTransformRules::KeepRelativeTransform, TEXT("WeaponSocket"));
+	Gun->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("WeaponSocket"));
 	Gun->SetOwner(this);
-	
+
+}
+
+bool AShooterCharacter::IsDead() const
+{
+	if (Health <= 0)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 // Called every frame
@@ -92,7 +104,7 @@ float AShooterCharacter::TakeDamage(float DamageAmount, struct FDamageEvent cons
 	float DamageApplied = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
 	DamageApplied = FMath::Min(Health, DamageApplied);
 	Health = Health - DamageApplied;
-	UE_LOG(LogTemp, Warning, TEXT("CurrentHealth: %f"),Health);
+	UE_LOG(LogTemp, Warning, TEXT("CurrentHealth: %f"), Health);
 	return DamageApplied;
 }
 
