@@ -22,14 +22,4 @@ void AAIShooter::BeginPlay()
 void AAIShooter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	
-	if (LineOfSightTo(PlayerPawn))
-	{
-		GetBlackboardComponent()->SetValueAsVector(TEXT("PlayerLocation"), PlayerPawn->GetActorLocation());
-		GetBlackboardComponent()->SetValueAsVector(TEXT("LastKnowPlayerLocation"), PlayerPawn->GetActorLocation());
-	}
-	else
-	{
-		GetBlackboardComponent()->ClearValue(TEXT("PlayerLocation"));
-	}
 }
