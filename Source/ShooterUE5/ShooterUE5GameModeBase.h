@@ -13,5 +13,7 @@ UCLASS()
 class SHOOTERUE5_API AShooterUE5GameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
+public:
+	virtual void PawnKilled(APawn* PawnKilled);
 	
 };

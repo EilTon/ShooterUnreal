@@ -3,3 +3,6 @@
 
 #include "ShooterUE5GameModeBase.h"
 
+void AShooterUE5GameModeBase::PawnKilled(APawn* PawnKilled)
+{
+}

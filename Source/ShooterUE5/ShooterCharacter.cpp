@@ -5,6 +5,7 @@
 #include "Gun.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Components/CapsuleComponent.h"
+#include "ShooterUE5GameModeBase.h"
 
 // Sets default values
 AShooterCharacter::AShooterCharacter()
@@ -108,8 +109,14 @@ float AShooterCharacter::TakeDamage(float DamageAmount, struct FDamageEvent cons
 	UE_LOG(LogTemp, Warning, TEXT("CurrentHealth: %f"), Health);
 	if (IsDead())
 	{
+		AShooterUE5GameModeBase* GameMode = GetWorld()->GetAuthGameMode<AShooterUE5GameModeBase>();
+		if (GameMode != nullptr)
+		{
+			GameMode->PawnKilled(this);
+		}
 		DetachFromControllerPendingDestroy();
 		GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+		
 	}
 	return DamageApplied;
 }
